@@ -1,32 +1,27 @@
-#include <fstream>
+#include <iostream>
 using namespace std;
 
 int main()
 {
 
-    ifstream in;
-    in.open("Input.txt");
-    ofstream out;
-    out.open("Output.txt");
-
     int t;
-    in >> t;
+    cin >> t;
 
     while (t--)
     {
 
         int n;
-        in >> n;
+        cin >> n;
 
         int arr[1000];
 
         for (int i = 0; i < n; i++)
         {
-            in >> arr[i];
+            cin >> arr[i];
         }
 
         int key;
-        in >> key;
+        cin >> key;
         int comparisons = 0;
         bool flag = false;
 
@@ -43,13 +38,13 @@ int main()
 
         if (flag)
         {
-            out << "Present"
-                << " " << comparisons << endl;
+            cout << "Element is Present" << endl;
         }
         else
         {
-            out << "Not Present"
-                << " " << comparisons << endl;
+            cout << "Element is not Present" << endl;
         }
+
+        cout << "Total no of comparisons=" << comparisons << endl;
     }
 }
