@@ -3,10 +3,10 @@ using namespace std;
 
 int main(){
 
-    int t1;
-    cin>>t1;
+    int t;
+    cin>>t;
 
-    while(t1--){
+    while(t--){
 
         int n;
         cin>>n;
