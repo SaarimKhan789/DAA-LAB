@@ -1,6 +1,8 @@
 #include <fstream>
 #include <math.h>
+
 using namespace std;
+
 int JumpSearch(int *arr, int n, int key, int &comparisons)
 {
 
@@ -80,5 +82,7 @@ int main()
             out << "Present"
                 << " " << comparisons << endl;
         }
+
+        delete[] arr;
     }
 }
