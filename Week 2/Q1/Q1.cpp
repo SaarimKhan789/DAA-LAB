@@ -85,6 +85,8 @@ int main()
         {
             out << "Key not Present" << endl;
         }
+
+        delete[] arr;
     }
 
     return 0;

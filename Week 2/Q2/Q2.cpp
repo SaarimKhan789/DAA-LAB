@@ -48,6 +48,8 @@ int main()
         {
             out << "No sequence found" << endl;
         }
+
+        delete[] arr;
     }
     return 0;
 }
