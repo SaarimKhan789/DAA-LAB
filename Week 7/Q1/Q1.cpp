@@ -18,7 +18,7 @@ int minDisIndex(int *dis, bool *vis, int v)
     return minIndex;
 }
 
-void dijkstra(vector<vector<int>> mat, int v, int s)
+void dijkstra(vector<vector<int> > mat, int v, int s)
 {
     int dis[v];
     bool vis[v];
@@ -76,7 +76,7 @@ int main()
     int v;
     cin >> v;
 
-    vector<vector<int>> mat(v, vector<int>(v));
+    vector<vector<int> > mat(v, vector<int>(v));
     for (i = 0; i < v; i++)
         for (j = 0; j < v; j++)
             cin >> mat[i][j];
