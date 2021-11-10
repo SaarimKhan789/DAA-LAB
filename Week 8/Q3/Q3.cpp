@@ -16,7 +16,7 @@ int get_max(vector<int> &key, vector<bool> &mst)
     return max_idx;
 }
 
-void Prims(vector<vector<int>> &g, int v)
+void Prims(vector<vector<int> > &g, int v)
 {
     vector<int> key(v, INT_MIN);
     vector<bool> mst(v, false);
@@ -49,7 +49,7 @@ int main()
     int v, e;
     cout << "Enter vertices and edges : ";
     cin >> v >> e;
-    vector<vector<int>> g(v, vector<int>(v, 0));
+    vector<vector<int> > g(v, vector<int>(v, 0));
     for (int i = 0; i < e; i++)
     {
         int x, y, wt;
