@@ -23,7 +23,7 @@ int main()
     cout << "Enter the value of n : ";
     cin >> n;
     vector<triplets> v;
-    vector<pair<int,int>> itwt;
+    vector<pair<int,int> > itwt;
     for(int i=0;i<n;i++)
     {
         triplets t;
