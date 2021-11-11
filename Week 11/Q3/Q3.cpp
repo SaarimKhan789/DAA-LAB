@@ -2,6 +2,7 @@
 using  namespace std;
 
 bool findPartition(int *arr,int n){
+    
     int sum=0;
 
     int i,j;
