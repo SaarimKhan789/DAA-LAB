@@ -1,51 +1,60 @@
 #include <bits/stdc++.h>
 using namespace std;
-bool checkPath(int node, vector<int> adj[], int s, int d, vector<int> &vis)
+bool hasPath(vector<vector<int> > mat,vector<int> &visited, int s, int d,int v )
 {
-    vis[node] = 1;
-    for (auto it : adj[s])
-    {
-        if (it == d)
-            return true;
+    if(mat[s][d]==1){
+        return true;
+    }
+    visited[s]=1;
+    bool ans=false;
+    
+    for(int i=0;i<v;i++){
 
-        if (!vis[it])
-        {
-            vis[it] = 1;
-            if (checkPath(it, adj, s, d, vis))
-                return true;
+        if(mat[s][i]){
+
+            if(!visited[i]){
+               ans=hasPath(mat,visited,i,d,v);
+
+               if(ans)
+               return true;
+            }
         }
     }
     return false;
 }
-bool isPathDFS(int n, vector<int> adj[], int s, int d)
+bool isPathDFS( vector<vector<int> > mat, int s, int d,int v)
 {
     if (s == d)
         return true;
-    vector<int> vis(n + 1, 0);
 
-    for (int i = 1; i <= n; i++)
-    {
-        if (checkPath(i, adj, s, d, vis))
-            return true;
+    vector<int> visited(v, 0);
+
+    
+    for(int i=0;i<v;i++){
+        
+            if(!visited[i]){
+                if(hasPath(mat,visited,s,d,v))
+                return true;
+            }
+        
     }
     return false;
 }
 int main()
 {
-    int n;
-    int m;
-    cin >> n >> m;
-    vector<int> adj[n + 1];
-    for (int i = 0; i < m; i++)
+    int v;
+    cin>>v;
+    vector<vector<int> > mat(v,vector<int> (v));
+    for (int i = 0; i < v; i++)
     {
-        int u, v;
-        cin >> u >> v;
-        adj[u].push_back(v);
-        adj[v].push_back(u);
+        for(int j=0;j<v;j++){
+            cin>>mat[i][j];
+        }
+        
     }
-    int s, d;
-    cin >> s >> d;
-    if (isPathDFS(n, adj, s, d))
+    int src,dest;
+    cin>>src>>dest;
+    if (isPathDFS(mat,src,dest,v))
         cout << "Yes Path Exist" << endl;
     else
         cout << "No Such Path Exists" << endl;
